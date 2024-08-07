@@ -1,5 +1,6 @@
 package com.example.learntogethe
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -38,6 +39,14 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
+
+fun SetArticleContents(articleImage:Image,
+                       articleTitle:String,
+                       articleText1:String,
+                       articleText2:String,
+                       modifier: Modifier = Modifier) {
+
 }
 
 @Composable
