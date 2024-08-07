@@ -55,25 +55,37 @@ fun SetArticleContents(articleTitle:String,
             alignment = Alignment.Center,
             contentScale = ContentScale.Fit
         )
-        Text(
-            text = articleTitle,
-            fontSize = 24.sp,
-            modifier = Modifier.padding(16.dp)
-        )
-        Text(
-            text = articleText1,
-            textAlign = TextAlign.Justify,
-            modifier = Modifier.padding(
-                start = 16.dp,
-                end = 16.dp
-            )
-        )
-        Text(
-            text = articleText2,
-            textAlign = TextAlign.Justify,
-            modifier = Modifier.padding(16.dp)
+        SetArticleTexts(articleTitle,
+                        articleText1,
+                        articleText2
         )
     }
+}
+
+@Composable
+private fun SetArticleTexts(
+    articleTitle: String,
+    articleText1: String,
+    articleText2: String
+) {
+    Text(
+        text = articleTitle,
+        fontSize = 24.sp,
+        modifier = Modifier.padding(16.dp)
+    )
+    Text(
+        text = articleText1,
+        textAlign = TextAlign.Justify,
+        modifier = Modifier.padding(
+            start = 16.dp,
+            end = 16.dp
+        )
+    )
+    Text(
+        text = articleText2,
+        textAlign = TextAlign.Justify,
+        modifier = Modifier.padding(16.dp)
+    )
 }
 
 @Preview
