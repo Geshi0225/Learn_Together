@@ -1,20 +1,21 @@
 package com.example.learntogethe
 
-import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.StringRes
-import androidx.compose.foundation.interaction.DragInteraction
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             LearnTogetheTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SetArticleText(
+                    SetArticleContents(
                         articleTitle = stringResource(R.string.article_title),
                         articleText1 = stringResource(R.string.article_body1),
                         articleText2 = stringResource(R.string.article_body2),
@@ -41,23 +42,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun SetArticleContents(articleImage:Image,
-                       articleTitle:String,
+@Composable
+fun SetArticleContents(articleTitle:String,
                        articleText1:String,
                        articleText2:String,
                        modifier: Modifier = Modifier) {
-
-}
-
-@Composable
-fun SetArticleText(articleTitle:String,
-                   articleText1:String,
-                   articleText2:String,
-                   modifier: Modifier = Modifier) {
-    Column(
-
-    )
-    {
+    val image = painterResource(id = R.drawable.bg_compose_background)
+    Column{
+        Image(
+            painter = image,
+            contentDescription = null,
+            alignment = Alignment.Center,
+            contentScale = ContentScale.Fit
+        )
         Text(
             text = articleTitle,
             fontSize = 24.sp,
@@ -86,7 +83,7 @@ fun SetArticleText(articleTitle:String,
 @Composable
 fun SetArticlePreview() {
     LearnTogetheTheme {
-        SetArticleText(
+        SetArticleContents(
             articleTitle = stringResource(R.string.article_title),
             articleText1 = stringResource(R.string.article_body1),
             articleText2 = stringResource(R.string.article_body2),
